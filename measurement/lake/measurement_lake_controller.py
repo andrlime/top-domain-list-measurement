@@ -63,7 +63,7 @@ class MeasurementLakeController(BaseLakeController):
                 FROM parquet_scan('{self._raw}/**/*.parquet', filename=true, hive_partitioning=false)
             """)
         return self._con.sql(sql)
-    
+
     def reset_connection(self):
         if hasattr(self, "_con"):
             self._con.close()

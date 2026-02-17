@@ -3,7 +3,6 @@ import gc
 from pathlib import Path
 
 import arrow
-import tqdm
 
 from measurement.lake.measurement_lake_controller import MeasurementLakeController
 from measurement.util.logger import get_logger
