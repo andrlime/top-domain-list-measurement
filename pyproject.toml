@@ -6,7 +6,13 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "arrow>=1.4.0",
+    "duckdb>=1.2.0",
     "httpx>=0.28.1",
+    "numpy>=2.4.2",
+    "pandas>=3.0.0",
+    "polars>=1.38.1",
+    "pyarrow>=19.0.0",
+    "tqdm>=4.67.3",
 ]
 
 [dependency-groups]
