@@ -72,7 +72,7 @@ class MeasurementLakeController(BaseLakeController):
     async def download(self, startdate: arrow.Arrow, enddate: arrow.Arrow) -> None:
         await self._download_all(startdate, enddate)
 
-    def contains(self, domain: str, year: int) -> None:
+    def contains(self, domain: str, year: int) -> bool:
         os.makedirs(f"{self._output_dir}/{domain}", exist_ok=True)
         return Path(f"{self._output_dir}/{domain}/{year}.parquet").exists()
 
