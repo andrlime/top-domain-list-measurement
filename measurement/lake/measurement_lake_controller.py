@@ -63,9 +63,18 @@ class MeasurementLakeController(BaseLakeController):
                 FROM parquet_scan('{self._raw}/**/*.parquet', filename=true, hive_partitioning=false)
             """)
         return self._con.sql(sql)
+    
+    def reset_connection(self):
+        if hasattr(self, "_con"):
+            self._con.close()
+            del self._con
 
     async def download(self, startdate: arrow.Arrow, enddate: arrow.Arrow) -> None:
         await self._download_all(startdate, enddate)
+
+    def contains(self, domain: str, year: int) -> None:
+        os.makedirs(f"{self._output_dir}/{domain}", exist_ok=True)
+        return Path(f"{self._output_dir}/{domain}/{year}.parquet").exists()
 
     def save(self, df, domain: str, year: int) -> None:
         os.makedirs(f"{self._output_dir}/{domain}", exist_ok=True)
