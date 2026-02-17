@@ -1,0 +1,19 @@
+version: '3'
+
+tasks:
+  lint:
+    cmds:
+      - uv run ruff format --check .
+      - uv run ruff check .
+  format:
+    cmds:
+      - uv run ruff check --select I --fix .
+      - uv run ruff format .
+  strict-check:
+    cmds:
+      - uv run pyrefly check .
+  checks:
+    cmds:
+      - task: format
+      - task: lint
+      - task: strict-check
