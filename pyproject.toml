@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Top domain list measurement reproducibility project CS 445 Winter 2026"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "arrow>=1.4.0",
+    "httpx>=0.28.1",
+]
 
 [dependency-groups]
 dev = [
